@@ -14,7 +14,15 @@ CREATE TABLE public.continents_according_to_owid (
   CONSTRAINT continents_according_to_owid_pk PRIMARY KEY (entity)
 );
 
+
 /* \copy public.continents_according_to_owid (entity, code, year, world_region_owid)
 FROM '/Users/medhasubramaniyan/Desktop/data_set/emissions/continents-according-to-our-world-in-data/continents-according-to-our-world-in-data.csv' CSV HEADER; */
 
 /*\copy public.annual_co_emissions_by_region (entity, code, year, annual_co2_emissions) FROM '/Users/medhasubramaniyan/Desktop/data_set/emissions/annual-co-emissions-by-region.csv' CSV HEADER;*/ 
+-- Rename emissions table
+ALTER TABLE public.annual_co_emissions_by_region
+RENAME TO emissions;
+
+-- Rename continents table
+ALTER TABLE public.continents_according_to_owid
+RENAME TO continents;
